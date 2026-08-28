@@ -24,7 +24,12 @@ class Program
         string dataFimStr = Console.ReadLine() ?? "";
         DateTime dataFim = DateTime.Parse(dataFimStr);
 
-        Tarefa tarefa = new Tarefa(nome, dataInicio, dataFim);
+        while (dataFim < dataInicio)
+        {
+            Console.WriteLine("\n⚠️ Ops! A data de término não pode ser anterior à data de início.");
+            dataFim = LerDataValida("Digite novamente a data de término (dd/mm/aaaa): ");
+
+            Tarefa tarefa = new Tarefa(nome, dataInicio, dataFim);
 
         Console.WriteLine("\\n--- RESUMO DA TAREFA ---");
         Console.WriteLine($"Tarefa: {tarefa.Nome}");
