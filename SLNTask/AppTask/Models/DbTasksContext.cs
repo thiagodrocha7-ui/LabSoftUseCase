@@ -15,7 +15,7 @@ public partial class DbTasksContext : DbContext
     {
     }
 
-    public virtual DbSet<Funcionario> Funcionarios { get; set; }
+    public virtual DbSet<Funcionarios> Funcionarios { get; set; }
 
     public virtual DbSet<Tarefa> Tarefas { get; set; }
 
@@ -24,7 +24,7 @@ public partial class DbTasksContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Funcionario>(entity =>
+        modelBuilder.Entity<Funcionarios>(entity =>
         {
             entity.HasKey(e => e.Codigo).HasName("PK__Funciona__06370DADCC2F491C");
 
