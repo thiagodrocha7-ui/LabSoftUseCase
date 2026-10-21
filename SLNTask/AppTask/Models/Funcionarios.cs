@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AppTask.Models;
 
-public partial class Funcionario
+public partial class Funcionarios
 {
     public int Codigo { get; set; }
 
