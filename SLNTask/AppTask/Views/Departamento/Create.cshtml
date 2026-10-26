@@ -1,38 +1,40 @@
 ﻿@model AppTask.Models.Departamento
 
+
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+
+<h1>Criar Departamento</h1>
+
 
 <h4>Departamento</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
+        <form action="/Departamento/Create" method="post">
+            @Html.AntiForgeryToken()
+            <div class="form-group mb-3">
+                <label for="Descricao" class="control-label">Descrição</label>
+                <input type="text" name="Descricao" id="Descricao" class="form-control" />
             </div>
-            <div class="form-group">
-                <label asp-for="Ativo" class="control-label"></label>
-                <input asp-for="Ativo" class="form-control" />
-                <span asp-validation-for="Ativo" class="text-danger"></span>
+            <div class="form-group mb-3 form-check">
+                <input type="checkbox" name="Ativo" id="Ativo" class="form-check-input" value="true" />
+                <input type="hidden" name="Ativo" value="false" />
+                <label class="form-check-label" for="Ativo">Ativo</label>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group mb-3">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+                <a href="/Departamento/Index" class="btn btn-secondary">Voltar</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
